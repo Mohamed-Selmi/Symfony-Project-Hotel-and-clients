@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Form;
-
+use Symfony\Component\Validator\Constraints\File;
 use App\Entity\Hotel;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,12 +16,14 @@ class HotelType extends AbstractType
             ->add('name')
             ->add('capacity')
             ->add('price')
-            ->add('hotelPicture',FileType::class,['label'=>'Hotel picture (image)',
+            ->add('hotelPicture',FileType::class,[
+            //'label'=>'Hotel picture (image)',
             'mapped'=>false,
             'required'=>true,
             'constraints'=>[
                 new File(
-                    extensions:['jpg','png','jpeg'],
+                    maxSize: '1024k',
+                    extensions: ['jpg','png','jpeg'],
                     extensionsMessage:'Please upload a valid Image',
                 )
                 ],
