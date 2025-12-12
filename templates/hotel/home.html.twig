@@ -1,0 +1,20 @@
+{%extends "base.html.twig" %}
+{% block body %}
+{% for hotel in Hotels %}
+<div class="HotelCard">
+{% if hotel.hotelPicture is not null %}
+<img src="{{ asset('uploads/HotelImages/' ~ hotel.getHotelPicture())}}" alt="hotel picture" height="250" width="250">
+{% endif %}
+<div class="HotelInfo">
+<h2> Hotel name: {{hotel.name}} </h2>
+<h2> Hotel capacity: {{hotel.capacity}} </h2>
+<h2> Hotel price: {{hotel.price}} </h2>
+</div>
+<div class="HotelButtons">
+<a class="button" href="{{ path('delete_hotel', {'id':hotel.id})}}"> Delete </a>
+<a class="button" href="{{ path('update_hotel', {'id':hotel.id})}}" onclick="alert('clicked update');"> Update </a>
+<a class="button" href="{{ path('show_hotel', {'id':hotel.id})}}" > Visit </a>
+</div>
+</div>
+{% endfor %}
+{% endblock %} 

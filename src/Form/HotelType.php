@@ -23,9 +23,8 @@ class HotelType extends AbstractType
                 new File(
                     maxSize: '1024k',
                     mimeTypes : [
-                            'application/pdf',
-                            'application/x-pdf',
                             'image/jpeg',
+                            'image/png',
                         ],
                     mimeTypesMessage:'Please upload a valid Image',
                 )

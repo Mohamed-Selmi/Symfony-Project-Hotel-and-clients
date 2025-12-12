@@ -1,0 +1,20 @@
+{%extends "base.html.twig" %}
+
+
+{% block body %}
+<div class="HotelCard">
+{% if hotel.hotelPicture is not null %}
+<img src="{{ asset('uploads/HotelImages/' ~ hotel.getHotelPicture())}}" alt="hotel picture" height="250" width="250">
+{% endif %}
+<div class="HotelInfo">
+<h2> Hotel name: {{hotel.name}} </h2>
+<h2> Hotel capacity: {{hotel.capacity}} </h2>
+<h2> Hotel price: {{hotel.price}} </h2>
+</div>
+<div class="HotelButtons">
+<a class="button" href="#"> Delete </a>
+<a class="button" href="#"> Update </a>
+<a class="button" href="#"> Visit </a>
+</div>
+</div>
+{% endblock %} 

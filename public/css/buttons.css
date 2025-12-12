@@ -1,0 +1,10 @@
+.button{
+    border-radius: 20%;
+    
+}
+.HotelButtons{
+    display: flex;
+    flex-direction: row;
+    gap:2px;
+    justify-content: center;
+}
